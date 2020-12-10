@@ -1,9 +1,15 @@
 import './App.css';
 import Navbar from './components/Navbar/Navbar.js';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer.js';
+import Home from './components/Home/Home'
 
 function App() {
   return (
-    <Navbar />
+    <div>
+        <Navbar />
+        <Home />
+    </div>
+    
   );
 }
 

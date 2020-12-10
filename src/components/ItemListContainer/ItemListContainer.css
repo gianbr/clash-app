@@ -1,0 +1,10 @@
+.title, .greet{
+    text-align: center;
+    color: #b42222;
+    z-index: 999999;
+}
+
+.greet{
+    font-size: 20px;
+    text-decoration: underline;
+}
