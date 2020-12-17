@@ -1,41 +1,42 @@
 import './ItemCount.css';
-import React from 'react';
+import {React, useState} from 'react';
 
-    const ItemCount = ()=> {
+
+    const ItemCount = ({initialValue, maxValue, onAdd}) => {
   
-        const [contador, setContador] = React.useState(0);
-        const [stock, setStock] = React.useState(5);
+         const [contador, setContador] = useState(initialValue);
+         const [stock, setStock] = useState(maxValue);
 
 
-        const aumentarContador = () => {
-            if(contador<6 && stock>0){
-            setContador(contador+1);
-            setStock(stock-1);
-            }else{
-            document.getElementById("demo").innerHTML = "No queda stock";
-            }
-        }
+         const aumentarContador = () => {
+             if(stock>0 && contador<5){
+             setContador(contador+1);
+             setStock(stock-1);
+             }else{
+             document.getElementById("demo").innerHTML = "No queda stock";
+             }
+         }
 
-        const restarContador = () => {
-            if(contador>0 && stock>0){
-                setContador(contador-1);
-                setStock(stock+1);
-            }else if(contador==5){
-                setContador(contador-1);
-                setStock(stock+1);
-                document.getElementById("demo").innerHTML = "";
-            }
-        }
+         const restarContador = () => {
+             if(contador>0 && stock<6){
+                 setContador(contador-1);
+                 setStock(stock+1);
+                 document.getElementById("demo").innerHTML = "";
+             }else if(contador==5){
+                 setContador(contador-1);
+                 setStock(stock+1);
+             }
+         }
 
-        return (
-            <div>
-                <p> Elementos: {contador} </p>
-                <button className = "elemento" onClick = {aumentarContador}> Agregar elemento </button>
-                <button className = "elemento" onClick = {restarContador}> Quitar elemento</button>
-                <p id="demo"></p>
-            </div>
+         return (
+             <div>
+                 <p> Elementos: {contador} </p>
+                 <button className = "elemento" onClick = {aumentarContador}> Agregar elemento </button>
+                 <button className = "elemento" onClick = {restarContador}> Quitar elemento</button>
+                 <p id="demo"></p>
+             </div>
 
-        );
-    }
+         );
+     }
 
- export default ItemCount;
+  export default ItemCount;
