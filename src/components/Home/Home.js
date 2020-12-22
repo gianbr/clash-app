@@ -4,9 +4,9 @@ import ItemListContainer from '../ItemListContainer/ItemListContainer.js';
 
 function Home(){
     return(
-        <main className="home">
+        <div className="home">
             <ItemListContainer title="Clash - ePubs" greet="El lugar de tus libros digitales"/>
-        </main>
+        </div>
     );
 }
 

@@ -14,6 +14,7 @@ import {React, useState} from 'react';
              setStock(stock-1);
              }else{
              document.getElementById("demo").innerHTML = "No queda stock";
+            //  document.getElementsByClassName("elemento").disabled = true;
              }
          }
 
@@ -30,13 +31,13 @@ import {React, useState} from 'react';
 
          return (
              <div>
-                 <p> Elementos: {contador} </p>
+                 <p className="botones"> Elementos: {contador} </p>
                  <button className = "elemento" onClick = {aumentarContador}> Agregar elemento </button>
                  <button className = "elemento" onClick = {restarContador}> Quitar elemento</button>
                  <p id="demo"></p>
              </div>
 
          );
-     }
+    }
 
   export default ItemCount;

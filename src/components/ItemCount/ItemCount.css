@@ -2,10 +2,12 @@ div{
     text-align: center;
 }
 
-p{
+.botones{
     font-size: 30px;
     font-weight: bold;
 }
+
+
 
 .elemento{
     background-color: #4ca0af;
@@ -15,4 +17,9 @@ p{
     text-decoration: none;
     margin: 5px;
     border-radius: 5px;
+}
+
+#demo{
+    font-weight: bold;
+    font-size: 25px;
 }
