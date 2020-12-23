@@ -8,7 +8,7 @@ function Item(props) {
             <h5>{props.nombre}</h5>
             <ul>
                 <li>Precio: {props.precio}</li>
-                <li>Categoría {props.categoria}</li>
+                <li>Categoría: {props.categoria}</li>
             </ul>
             <hr />
         </div>

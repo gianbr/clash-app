@@ -1,3 +1,4 @@
+import { data } from "jquery";
 import React, { useState, useEffect } from "react";
 import Item from "./Item/Item";
 import './ItemList.css'
@@ -13,6 +14,7 @@ function ItemList(props) {
           })
           .then(data => {
             setItems(data);
+            console.log(data);
           });
       }, 2000);
     }, []);

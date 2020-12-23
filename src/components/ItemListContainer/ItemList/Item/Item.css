@@ -1,7 +1,7 @@
-.item, .item div{
+ .item, .item div{
     width: 50%;
     margin: auto;
-}
+} 
 
 .item div{
     border: 1px solid rgb(2, 2, 2);

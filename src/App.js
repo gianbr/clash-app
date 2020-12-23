@@ -16,7 +16,7 @@ function App() {
         <Navbar />
         <Home />
       <hr></hr>
-        <ItemList />
+        
         <ItemCount onAdd={handleAdd} initialValue={0} maxValue={5}/>
     </div>
     

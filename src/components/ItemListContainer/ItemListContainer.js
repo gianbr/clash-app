@@ -12,6 +12,9 @@ function ItemListContainer ({title, greet}){
             <p>
                 Bienvenido a nuestra lista de productos!
             </p>
+            <div>
+                <ItemList />
+            </div>
         </section>
             
     );
