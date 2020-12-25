@@ -9,7 +9,8 @@ import {React, useState} from 'react';
 
 
          const aumentarContador = () => {
-             if(stock>0 && contador<5){
+             if(stock>0 && contador<setStock){
+                console.log(setStock);
              setContador(contador+1);
              setStock(stock-1);
              }else{
