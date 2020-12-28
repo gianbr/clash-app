@@ -2,14 +2,13 @@ import './App.css';
 import Navbar from './components/Navbar/Navbar.js';
 import Home from './components/Home/Home'
 import ItemCount from './components/ItemCount/ItemCount.js';
-import ItemListContainer from './components/ItemListContainer/ItemListContainer'
-import ItemList from './components/ItemListContainer/ItemList/ItemList'
 
 function App() {
 
-    const handleAdd = () =>{
+    const handleAdd = () => {
 
     }
+
 
   return (
     <div>
@@ -17,7 +16,7 @@ function App() {
         <Home />
       <hr></hr>
         
-        <ItemCount onAdd={handleAdd} initialValue={0} maxValue={5}/>
+      {/* <ItemCount onAdd={handleAdd} initialValue={0} maxValue={5} /> */}
     </div>
     
   );

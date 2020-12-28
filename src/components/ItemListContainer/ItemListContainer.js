@@ -1,5 +1,6 @@
 import './ItemListContainer.css';
 import ItemList from "./ItemList/ItemList";
+import ItemDetailContainer from "../ItemDetailContainer/ItemDetailContainer"
 
 function ItemListContainer ({title, greet}){
     return(
@@ -9,11 +10,17 @@ function ItemListContainer ({title, greet}){
                 <p className="greet">{greet}</p>
             </div>
             <hr></hr>
-            <p>
+            <p className = "prodLista">
                 Bienvenido a nuestra lista de productos!
             </p>
             <div>
                 <ItemList />
+            </div>
+            <p className="prodDiscount">
+                Productos en oferta
+            </p>
+            <div>
+                <ItemDetailContainer />
             </div>
         </section>
             

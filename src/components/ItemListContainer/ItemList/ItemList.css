@@ -1,3 +1,16 @@
-.listaProductos{
-    background-color: white;
+.itemList{
+    border: 2px solid #31b2fd;
+    box-shadow: 2px 2px 2px 1px #37007536;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    margin: 20px;
+    width: 300px;
+    text-align: center;
+}
+
+
+.itemID, .itemStock{
+    font-size: 10px;
 }

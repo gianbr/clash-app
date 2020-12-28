@@ -1,0 +1,26 @@
+.addCarrito{
+    display: block;
+    width: 100%;
+    color: #ffffff;
+    background-color: #48c53c;
+    border: none;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.itemDetail{
+    border: 3px solid #31b2fd;
+    box-shadow: 2px 2px 2px 1px #37007536;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    margin: 20px;
+    width: 20%;
+
+}
+
+.itemID, .itemStock{
+    font-size: 10px;
+}
