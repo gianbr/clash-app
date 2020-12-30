@@ -1,24 +1,26 @@
 import './App.css';
-import Navbar from './components/Navbar/Navbar.js';
-import Home from './components/Home/Home'
-import ItemCount from './components/ItemCount/ItemCount.js';
+import React, { useState } from "react";
+import {BrowserRouter } from 'react-router-dom';
+import Header from './components/Layout/Header/Header'
+import Main from './components/Layout/Main/Main'
+
 
 function App() {
 
+    const [menuLinks, setLinksGenerales] = useState(["Aventura", "Fantasia"]);
+    const [submenuLinks, setLinksProductos] = useState(["Suspenso", "Infantiles", "Fantasia", "Ciencia ficcion"]);
+        
     const handleAdd = () => {
 
     }
 
 
   return (
-    <div>
-        <Navbar />
-        <Home />
-      <hr></hr>
-        
-      {/* <ItemCount onAdd={handleAdd} initialValue={0} maxValue={5} /> */}
-    </div>
-    
+    <BrowserRouter>
+        <Header menuLinks={menuLinks} submenuLinks={submenuLinks}/>
+        <Main/>
+        {/*<Footer/> */}
+    </BrowserRouter>
   );
 }
 

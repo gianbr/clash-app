@@ -1,18 +1,26 @@
 import React from 'react';
-import './ItemDetail.css';
+//Boostrap
+import Button from 'react-bootstrap/Button'
+//Components
+import Counter from '../../ItemCount/ItemCount'
 
-const ItemDetail = ({ item }) => {
 
-    return (
-        <div className="itemDetail">
-            <h3>{item.name}</h3>
-            <p className="itemID">ID de producto {item.id}</p>
-            <img src={item.picture} alt=""/>
-            <p >$ {item.price}</p>
-            <p className="itemDesc">{item.description}</p>
-            <p className="itemStock" >Stock: {item.stock} disponibles</p>
-            <button className="addCarrito">Agregar al carrito</button>
-        </div>
+
+const ItemDetail = ({detail: {name, picture, category, description, price, stock, id}}) => {
+    return(
+        <>
+            <h3>{name}</h3>
+            <div className="detailOverview">
+                <img alt={id} src={picture} />
+                <div className="detailsDescription">
+                    <p>{category}</p>
+                    <p>{description}</p>
+                    <p>$ {price}</p>
+                    <Counter stock={stock} initial={1} />
+                    <Button>Sumar al Carrito</Button>
+                </div>
+            </div>
+        </>
     )
 }
 

@@ -1,28 +1,32 @@
+import React from "react";
+import { Link } from "react-router-dom";
 import './Navbar.css';
-import CartWidget from '../CartWidget/CartWidget.js';
+import CartWidget from '../../../CartWidget/CartWidget.js';
+import Logo from '../Logo/Logo'
 
-function Navbar(){
+let NavBar = ({ menuLinks, submenuLinks }) => {
     return(
-        <nav className="navbar navbar-expand-md  bg-dark">
+        <nav id="NavBar" className=" navbar-expand-md  bg-dark">
             <div className="container">
-                <a className=" logo" href="index.html">Clash</a>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon navResponsive"></span>
                 </button>
                 <div className="collapse navbar-collapse justify-content-end" id="navbarsExampleDefault">
+                    <Link to={"/"}>
+                        <Logo/>
+                    </Link>
+                    
                     <ul className="navbar-nav m-auto">
-                        <li className="nav-item active">
-                            <a className="nav-link" href="#">Inicio <span className="sr-only">(current)</span></a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="product.html">Productos</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="product.html">Carrito</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="contact.html">Contacto</a>
-                        </li>
+                        {menuLinks.map((link, indice) => {
+                            return (
+                                <li className="nav-item active">
+                                    <span>
+                                        <Link to={"/" + link} key={indice}>{link}</Link>
+                                        {/* <i className="fas fa-angle-right"></i> */}
+                                    </span>
+                                </li>
+                            );
+                        })}
                     </ul>
 
                     <form className="form-inline my-2 my-lg-0">
@@ -42,4 +46,4 @@ function Navbar(){
     );
 }
 
-export default Navbar;
+export default NavBar;

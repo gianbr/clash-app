@@ -1,0 +1,9 @@
+#Logo {
+    display: flex;
+    justify-content: center;
+}
+
+#Logo h2 {
+    height: 4rem;
+    margin: 0.5rem;
+}

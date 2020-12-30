@@ -1,43 +1,61 @@
-import React, { useState, useEffect } from 'react';
-import ItemDetail from './ItemDetail/ItemDetail';
+import React, {useState, useEffect} from 'react'
+import {useParams} from 'react-router-dom'
+//Components
+import ItemDetail from './ItemDetail/ItemDetail'
+import Loading from '../ItemListContainer/ItemList/Loading'
 
 
-const ItemDetailContainer = (props) => {
+const ItemDetailContainer = () => {
 
-    const [product, setProduct] = useState([]);
+    const [data, setData] = useState([])
+    const [loading, setLoading] = useState(true)
 
-    const arrayProduct = new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve({
-                id: 4,
-                name: "name 4",
-                price: 63,
-                category: "category 4",
-                stock: 56,
-                picture: "https://images-na.ssl-images-amazon.com/images/I/41K99+cInvL._SX326_BO1,204,203,200_.jpg",
-                description: "In et vehicula dui. Proin lacinia urna et suscipit mattis. Donec vestibulum."
-            })
-        }, 2000);
-    });
+    const params = useParams()
+    
 
-    useEffect(() => {
-        arrayProduct
-            .then(response => setProduct(response))
-            .catch(error => console.log(error));
-    }, []);
-
-
-    return (
-        <>
-            { product.length === 0 ?
-                <p>Cargando producto...</p> :
-
-                <div>
-                    <ItemDetail item={product} />
-                </div>
+    useEffect(()=>{
+        const fetchData = fetch('../Products.json')
+        fetchData
+        .then((getData) => {
+            if (getData.status === 200 ) {
+                return getData.json()
             }
-        </>
+        })
+        .then((getData)=>{
+            setTimeout(() => {
+                setData(getData)
+                setLoading(false)
+            }, 600);
+        })
+    }, [])
+    
+    return(
+        <div className="itemDetailContainer">
+            { loading ? 
+                <Loading /> : 
+                data.map((e)=>{
+                    return(
+                        e.id === params.id ? 
+                        <ItemDetail 
+                            key={e.id}
+                            detail={{
+                                    id: e.id,
+                                    name : e.name,
+                                    picture : e.picture,
+                                    category : e.category,
+                                    description : e.description,
+                                    price : e.price,
+                                    stock : e.stock,
+
+                            }}
+                        /> :
+                        null
+                    )
+                })
+            }
+        </div>
     )
+
 }
 
 export default ItemDetailContainer

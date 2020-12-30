@@ -14,3 +14,7 @@
 .itemID, .itemStock{
     font-size: 10px;
 }
+
+.container{
+    max-width: 540px!important;
+}
