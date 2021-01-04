@@ -1,53 +1,20 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-//BOOTSTRAP
-import Card from "react-bootstrap/Card";
-import Button from 'react-bootstrap/Button'
-//Components
-import Counter from '../../ItemCount/ItemCount';
+import Item from './Item/Item'
+import Loading from './Loader/Loading'
 
-const ItemList = ({name, stock, price, picture, id}) => {
+
+const ItemList = ({items}) => {
     return(
-        <Card>
-            <Card.Img variant="top" src={picture} />
-            <Card.Body>
-                <Card.Title>
-                    {name}
-                </Card.Title>
-                <Card.Text>
-                    $ {price}
-                </Card.Text>
-                <Link to={`/producto/${id}`}>Detalle</Link>
-                <Counter 
-                    initial={1}
-                    stock={stock}
-                />
-            </Card.Body>
-        </Card>
+        <div className="row">
+            {items.length > 0
+            ? items.map(item=>{
+                return (
+                    <Item key={item.id} id={item.id} name={item.name} price={item.price} pictureUrl={item.pictureUrl}/>
+                )
+            })
+            : <Loading/>}
+        </div>
     )
 }
 
 export default ItemList
-        // <>
-        //     {product.length === 0 ? <p>Buscando en base de datos...</p> : null}
-        //     { product.map((item) => {
-        //         return (
-        //             <>
-        //                 <div className="itemList">
-        //                     <img scr={item.picture} alt="" />
-        //                     <Link to={"itemdetail/" + item.id}></Link>
-        //                     <h3>{item.name}</h3>
-                            
-        //                     <p>${item.price}</p>
-        //                     <p className="itemStock" >Stock: {item.stock} disponibles</p>
-        //                     <p className="itemID">ID de producto {item.id}</p>
-        //                 </div>
-        //             </>
-        //         )
-        //     })
-        //     }
-        // </>
-//     );
-// }
-
-// export default ItemList;

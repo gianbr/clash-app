@@ -1,26 +1,32 @@
 import './App.css';
 import React, { useState } from "react";
-import {BrowserRouter } from 'react-router-dom';
-import Header from './components/Layout/Header/Header'
-import Main from './components/Layout/Main/Main'
-
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import ItemListContainer from './components/ItemListContainer/ItemListContainer'
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer'
+import NavBar from './components/Layout/Header/Navbar/Navbar'
 
 function App() {
-
-    const [menuLinks, setLinksGenerales] = useState(["Aventura", "Fantasia"]);
-    const [submenuLinks, setLinksProductos] = useState(["Suspenso", "Infantiles", "Fantasia", "Ciencia ficcion"]);
-        
-    const handleAdd = () => {
-
-    }
-
-
   return (
     <BrowserRouter>
-        <Header menuLinks={menuLinks} submenuLinks={submenuLinks}/>
-        <Main/>
-        {/*<Footer/> */}
-    </BrowserRouter>
+          <NavBar/> 
+          <main>
+            <Switch>
+
+                <Route path="/" exact>
+                    <ItemListContainer/> 
+                </Route>
+
+                <Route path="/category/:id">
+                    <ItemListContainer/> 
+                </Route>
+
+                <Route path="/item/:id">
+                    <ItemDetailContainer/>
+                </Route>
+
+            </Switch>
+          </main>
+        </BrowserRouter>
   );
 }
 

@@ -1,7 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from 'react-router-dom';
 import './Navbar.css';
-import CartWidget from '../../../CartWidget/CartWidget.js';
+import CartWidget from './CartWidget/CartWidget.js';
 import Logo from '../Logo/Logo'
 
 let NavBar = ({ menuLinks, submenuLinks }) => {
@@ -12,21 +12,17 @@ let NavBar = ({ menuLinks, submenuLinks }) => {
                     <span className="navbar-toggler-icon navResponsive"></span>
                 </button>
                 <div className="collapse navbar-collapse justify-content-end" id="navbarsExampleDefault">
-                    <Link to={"/"}>
+                    <NavLink to="/" exact>
                         <Logo/>
-                    </Link>
+                    </NavLink>
                     
                     <ul className="navbar-nav m-auto">
-                        {menuLinks.map((link, indice) => {
-                            return (
-                                <li className="nav-item active">
-                                    <span>
-                                        <Link to={"/" + link} key={indice}>{link}</Link>
-                                        {/* <i className="fas fa-angle-right"></i> */}
-                                    </span>
-                                </li>
-                            );
-                        })}
+                        <li>
+                            <NavLink to="/category/1" className="black-text">Aventura</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/category/2" className="black-text">Fantasia</NavLink>
+                        </li>
                     </ul>
 
                     <form className="form-inline my-2 my-lg-0">
