@@ -1,44 +1,40 @@
-import './ItemCount.css';
-import {React, useState} from 'react';
+import React from 'react'; 
+import Button from "react-bootstrap/Button";
+import { Plus } from 'react-bootstrap-icons';
+import { Dash } from 'react-bootstrap-icons';
+import './ItemCount.css'
 
 
-    const ItemCount = ({initialValue, maxValue, onAdd}) => {
-  
-         const [contador, setContador] = useState(initialValue);
-         const [stock, setStock] = useState(maxValue);
 
+const ItemCount = ({count, initial, stock, handleDecrement, handleIncrement, onAdd}) => {
 
-         const aumentarContador = () => {
-             if(stock>0 && contador<setStock){
-                console.log(setStock);
-             setContador(contador+1);
-             setStock(stock-1);
-             }else{
-             document.getElementById("demo").innerHTML = "No queda stock";
-            //  document.getElementsByClassName("elemento").disabled = true;
-             }
-         }
+    return (
+        <>
+            <div className="counter">
+                <Button 
+                    onClick={handleDecrement} 
+                    disabled={count === initial}
+                    variant="outline-secondary" 
+                >
+                    <Dash size={20} />
+                </Button>
+                <p>{count}</p>
+                <Button 
+                    onClick={handleIncrement} 
+                    disabled={count === stock} 
+                    variant="outline-secondary">
+                    <Plus size={20} />
+                </Button>
+            </div>
+            <Button 
+                disabled={count === 0} 
+                variant={count === 0 ? 'outline-secondary' : 'primary'}
+                onClick={onAdd}
+                
+            >Agregar al carrito</Button>
+            
+        </>
+    )
+}
 
-         const restarContador = () => {
-             if(contador>0 && stock<6){
-                 setContador(contador-1);
-                 setStock(stock+1);
-                 document.getElementById("demo").innerHTML = "";
-             }else if(contador==5){
-                 setContador(contador-1);
-                 setStock(stock+1);
-             }
-         }
-
-         return (
-             <div>
-                 <p className="botones"> Elementos: {contador} </p>
-                 <button className = "elemento" onClick = {aumentarContador}> Agregar elemento </button>
-                 <button className = "elemento" onClick = {restarContador}> Quitar elemento</button>
-                 <p id="demo"></p>
-             </div>
-
-         );
-    }
-
-  export default ItemCount;
+export default ItemCount;

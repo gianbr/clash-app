@@ -1,11 +1,12 @@
 import React from 'react'
 import Item from './Item/Item'
 import Loading from './Loader/Loading'
+import './ItemList.css'
 
 
 const ItemList = ({items}) => {
     return(
-        <div className="row">
+        <div className="row productList">
             {items.length > 0
             ? items.map(item=>{
                 return (

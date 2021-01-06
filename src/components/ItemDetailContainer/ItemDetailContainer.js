@@ -6,7 +6,7 @@ import Loading from '../ItemListContainer/ItemList/Loader/Loading'
 const details = [
     {
         id: "1",
-        name: "name 1",
+        name: "El Principito",
         pictureUrl: "https://lelibros.online/uploads/2016/04/descargar-libro-el-principito-en-pdf-epub-mobi-o-leer-online.jpg",
         stock: 35,
         price: 2,
@@ -15,7 +15,7 @@ const details = [
       },
       {
         id: "2",
-        name: "name 2",
+        name: "Harry Potter y la Piedra Filosofal",
         pictureUrl: "https://cdn.waterstones.com/bookjackets/large/9781/4088/9781408855652.jpg",
         stock: 55,
         price: 85,
@@ -24,7 +24,7 @@ const details = [
       },
       {
         id: "3",
-        name: "name 3",
+        name: "Milk and Honey",
         pictureUrl: "https://images-na.ssl-images-amazon.com/images/I/31OihPuS0cL.jpg",
         stock: 0,
         price: 5,
@@ -33,7 +33,7 @@ const details = [
       },
       {
         id: "4",
-        name: "name 4",
+        name: "Twilight",
         pictureUrl: "https://images-na.ssl-images-amazon.com/images/I/41K99+cInvL._SX326_BO1,204,203,200_.jpg",
         stock: 56,
         price: 63,
@@ -42,7 +42,7 @@ const details = [
       },
       {
         id: "5",
-        name: "name 5",
+        name: "City of Glass",
         pictureUrl: "https://http2.mlstatic.com/D_NQ_NP_787605-MLA26100692391_092017-O.jpg",
         stock: 54,
         price: 100,
@@ -51,7 +51,7 @@ const details = [
       },
       {
         id: "6",
-        name: "name 6",
+        name: "Clockwork Princess",
         pictureUrl: "https://m.media-amazon.com/images/I/51upGIRy01L.jpg",
         stock: 19,
         price: 95,
@@ -60,7 +60,7 @@ const details = [
       },
       {
         id: "7",
-        name: "name 7",
+        name: "Unravel Me",
         pictureUrl: "https://images-na.ssl-images-amazon.com/images/I/51MzulARZjL.jpg",
         stock: 53,
         price: 76,
@@ -69,7 +69,7 @@ const details = [
       },
       {
         id: "8",
-        name: "name 8",
+        name: "Ignite Me",
         pictureUrl: "https://images-na.ssl-images-amazon.com/images/I/517kOp6qJZL._SX326_BO1,204,203,200_.jpg",
         stock: 0,
         price: 98,

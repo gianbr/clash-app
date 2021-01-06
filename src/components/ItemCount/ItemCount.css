@@ -1,25 +1,10 @@
-div{
-    text-align: center;
+.counter {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
 }
-
-.botones{
-    font-size: 30px;
-    font-weight: bold;
-}
-
-
-
-.elemento{
-    background-color: #4ca0af;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    margin: 5px;
-    border-radius: 5px;
-}
-
-#demo{
-    font-weight: bold;
-    font-size: 25px;
+.counter p {
+    margin: 0;
 }
