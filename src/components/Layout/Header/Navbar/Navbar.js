@@ -34,7 +34,9 @@ let NavBar = ({ menuLinks, submenuLinks }) => {
                                 </button>
                             </div>
                         </div>
-                        <CartWidget/>
+                        <NavLink to="/cart" exact>
+                            <CartWidget/>
+                        </NavLink>
                     </form>
                 </div>
             </div>

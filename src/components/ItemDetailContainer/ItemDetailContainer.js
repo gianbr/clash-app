@@ -108,7 +108,7 @@ const ItemDetailContainer = () => {
         <div>
             {item
             ? <ItemDetail item={item}/> 
-            : <Loading/>}
+            : <p>Buscando el producto seleccionado</p>}
         </div>
     )
 }

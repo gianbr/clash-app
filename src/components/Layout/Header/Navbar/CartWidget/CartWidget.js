@@ -2,10 +2,10 @@ import './CartWidget.css';
 
 function CartWidget(){
     return(
-        <a className="btn btn-success btn-sm ml-3" href="cart.html">
+        <div className="btn btn-success btn-sm ml-3">
             <i className="fa fa-shopping-cart"></i> Carrito 
             <span className="badge badge-light numItems">0</span>
-        </a>
+        </div>
     )
 }
 
