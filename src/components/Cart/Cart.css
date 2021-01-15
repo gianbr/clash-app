@@ -1,0 +1,60 @@
+.carritoDetalle{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    margin: 10px;
+    /* width: 300px; */
+    text-align: center;
+}
+
+.carritoDetalle img{
+    margin: 0 15px 0 15px;
+}
+
+.carrito{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+.carrito h1{
+    text-align: center;
+}
+
+.carrito Button{
+    padding: 10px;
+    border: none;
+    margin: 15px;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.carritoVacio{
+    display: inline-block;
+    width: 30%;
+    border: none;
+    margin-bottom: 20px;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.carritoContenedor{
+    text-align: center;
+}
+
+.carritoVacioMensaje{
+    font-size: 30px;
+    margin: 20px;
+}
+
+.carritoVacioBoton{
+    display: block;
+    border: none;
+    margin: 10px auto;
+    font-weight: 600;
+    font-size: 20px;
+    text-decoration: none;
+    text-align: center;
+}

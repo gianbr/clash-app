@@ -13,7 +13,7 @@ const Item = ({id,name,price,pictureUrl}) => {
                     <p>${price}</p>
                 </div>
                 <div className="card-action">
-                    <NavLink to={`/item/${id}`}>ver detalle</NavLink>
+                    <NavLink to={`/item/${id}`}>Ver detalle</NavLink>
                 </div>
             </div>
         </div>

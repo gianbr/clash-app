@@ -3,8 +3,11 @@ import { NavLink } from 'react-router-dom';
 import './Navbar.css';
 import CartWidget from './CartWidget/CartWidget.js';
 import Logo from '../Logo/Logo'
+import {useCartContext} from '../../../../context/cartContext'
 
-let NavBar = ({ menuLinks, submenuLinks }) => {
+let NavBar = ({}) => {
+    const {cart} = useCartContext();
+    
     return(
         <nav id="NavBar" className=" navbar-expand-md  bg-dark">
             <div className="container">
@@ -35,7 +38,9 @@ let NavBar = ({ menuLinks, submenuLinks }) => {
                             </div>
                         </div>
                         <NavLink to="/cart" exact>
-                            <CartWidget/>
+                            {
+                                !!cart.length && <CartWidget />
+                            }
                         </NavLink>
                     </form>
                 </div>

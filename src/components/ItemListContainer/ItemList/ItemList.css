@@ -1,4 +1,26 @@
-.productList {
+.itemList{
+    border: 2px solid #fafd31;
+    box-shadow: 2px 2px 2px 1px #100ce936;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    margin: 20px;
+    width: 300px;
+    text-align: center;
+}
+
+.itemList img{
+    height: 150px;
+}
+
+.itemTitulo{
+        text-align: center;
+        color: #002f75;
+        padding: 1em;
+}
+
+.productList{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
