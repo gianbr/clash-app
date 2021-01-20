@@ -1,7 +1,7 @@
 import React from 'react'
 import Item from './Item/Item'
-import Loading from './Loader/Loading'
 import './ItemList.css'
+import ReactLoading from 'react-loading'
 
 
 const ItemList = ({items}) => {
@@ -19,7 +19,9 @@ const ItemList = ({items}) => {
                         </div>
                     )
                 })
-                : <p>Buscando productos, por favor espere</p>}
+                :(
+                    <div className="loading"><ReactLoading type="spin" color="#000"/></div>
+                )}
             </div>
         </div>
     )
