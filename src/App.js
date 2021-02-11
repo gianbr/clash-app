@@ -7,6 +7,7 @@ import NavBar from './components/Layout/Header/Navbar/Navbar'
 import Cart from './components/Cart/Cart'
 import CartProvider from './context/cartContext'
 import Checkout from './components/Checkout/Checkout'
+import Footer from './components/Layout/Footer/Footer'
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
 
                 </Switch>
             </main>
+            <Footer/>
         </BrowserRouter>
     </CartProvider>
   );

@@ -25,7 +25,6 @@ const ItemListContainer = () => {
                             let item = { id: doc.id, ...doc.data() };
                             aux.push(item);
                         });
-                        console.log(aux);
                         setItems(aux);
                     })
                     .catch((err) => {
@@ -39,12 +38,10 @@ const ItemListContainer = () => {
 
                 query
                     .then((res) => {
-                        console.log(res.docs);
                         res.docs.forEach((doc) => {
                             let item = { id: doc.id, ...doc.data() };
                             aux.push(item);
                         });
-                        console.log(aux);
                         setItems(aux);
                     })
                     .catch((err) => {
@@ -58,12 +55,10 @@ const ItemListContainer = () => {
 
                 query
                     .then((res) => {
-                        console.log(res.docs);
                         res.docs.forEach((doc) => {
                             let item = { id: doc.id, ...doc.data() };
                             aux.push(item);
                         });
-                        console.log(aux);
                         setItems(aux);
                     })
                     .catch((err) => {

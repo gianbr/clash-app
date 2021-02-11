@@ -37,10 +37,10 @@ const ItemDetail = ({item}) => {
                         showCounter && <ItemCount stock={item.stock} initial={0} onAdd={handleAddProduct} />
                     }
                     {
-                        !showCounter && <Link to="/cart"><Button>Terminar compra</Button></Link>
+                        !showCounter && <Link to="/cart"><Button className="botonesDetalle">Terminar compra</Button></Link>
                     }
                     {
-                        !showCounter && <Link to='/'><Button>Continuar comprando</Button></Link>
+                        !showCounter && <Link to='/'><Button className="botonesDetalle" >Continuar comprando</Button></Link>
                     }
                 </div>
             </div>

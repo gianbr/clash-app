@@ -22,7 +22,6 @@ const ItemDetailContainer = () => {
                 })
                 .then((datos) => {
                     setItem({ id: id, ...datos });
-                    console.log(datos);
                 });
         }, 1000);
     },[id])

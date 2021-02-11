@@ -1,17 +1,19 @@
 import { useState, useContext } from 'react';
 import { getFirestore } from '../Firebase/firebaseSetup'
 import {useCartContext} from '../../context/cartContext'
+import Button from "react-bootstrap/Button";
+import {Link} from 'react-router-dom'
 import './Checkout.css'
+import firebase from "firebase/app";
+import "firebase/firestore";
 
 
 const Checkout = () => {
-    const [carrito,setCarrito] = useState([])
-    const [total,setTotal] = useState("")
     const [nombre,setNombre] = useState("")
     const [telefono,setTelefono] = useState("")
     const [email,setEmail] = useState("")
-    const [compra,setCompra] = useState("")
-    const {cart} = useCartContext();
+    const {cart, clearCart, totalPrice} = useCartContext();
+    const [orderId, setOrderId] = useState();
 
 
     const manejarCompra = (e) => {
@@ -22,56 +24,61 @@ const Checkout = () => {
                 phone: telefono,
                 email: email
             },
+            date: firebase.firestore.FieldValue.serverTimestamp(),
             items: cart,
-            total: total
+            total: totalPrice
         }
 
         const db = getFirestore()
         const OrderCollection = db.collection("orders")
         OrderCollection.add(datosCompra)
-        .then((resultado) => {
-            setCompra(resultado.id)
-
-            const Itemscollection = db.collection("productos")
-            const batch = getFirestore().batch()
-
-            carrito.forEach(item => {
-                batch.update(Itemscollection.doc(item.id), { stock: 0 })
-            })
-
-            batch.commit()
-                .then(() => {
-                    alert("Gracias por tu compra")
-                    alert(`ID de compra ${resultado.id}`)
-                })
+        .then(({id}) => {
+            clearCart();
+            setOrderId(id);
         })
+        .catch((err) => {
+            console.log(err);
+        })
+        .finally(console.log(datosCompra));
 
-        console.log(datosCompra);
     }
 
-    
     return (
-        <section className="checkout">
-            <div className="containerCheckout">
-                <h1>Datos de compra</h1>
+        <>
+            {
+                orderId ?
+                    <>
+                        <section className="compraRealizada">
+                            <h2>Compra realizada con exito!</h2>
+                            <p>Tu numero de orden es: <strong>{orderId}</strong> </p>
+                            <Link to="/" className="carritoVacioBoton"><Button>Ir a productos</Button></Link>
+                        </section>
+                    </>
 
-                <form onSubmit={manejarCompra} className="formCheckout">
-                    <div>
-                        <p>Nombre y Apellido:</p>
-                        <input value={nombre} onChange={(e) => { setNombre(e.target.value) }} type="text" />
-                    </div>
-                    <div>
-                        <p>Telefono:</p>
-                        <input value={telefono} onChange={(e) => { setTelefono(e.target.value) }} type="text" />
-                    </div>
-                    <div>
-                        <p>Correo Electrónico:</p>
-                        <input value={email} onChange={(e) => { setEmail(e.target.value) }} type="email" />
-                    </div>
-                    <button type="submit">Comprar</button>
-                </form>
-            </div>
-        </section>
+                    :
+                    <section className="checkout">
+                        <div className="containerCheckout">
+                            <h1>Datos de compra</h1>
+
+                            <form onSubmit={manejarCompra} className="formCheckout">
+                                <div>
+                                    <p>Nombre y Apellido:</p>
+                                    <input value={nombre} onChange={(e) => { setNombre(e.target.value) }} type="text" required/>
+                                </div>
+                                <div>
+                                    <p>Telefono:</p>
+                                    <input value={telefono} onChange={(e) => { setTelefono(e.target.value) }} type="text" required/>
+                                </div>
+                                <div>
+                                    <p>Correo Electrónico:</p>
+                                    <input value={email} onChange={(e) => { setEmail(e.target.value) }} type="email" required/>
+                                </div>
+                                <button type="submit">Comprar</button>
+                            </form>
+                        </div>
+                    </section>
+            }
+        </>
     )
 }
 

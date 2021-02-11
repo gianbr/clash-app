@@ -15,7 +15,7 @@ const ItemList = ({items}) => {
                 ? items.map(item=>{
                     return (
                         <div className="itemList">
-                            <Item key={item.id} id={item.id} name={item.name} price={item.price} pictureUrl={item.pictureUrl}/>
+                            <Item key={item.category} id={item.id} name={item.name} price={item.price} pictureUrl={item.pictureUrl}/>
                         </div>
                     )
                 })

@@ -7,19 +7,31 @@
 .formCheckout{
     margin: 10px;
     width: 500px;
+    font-size: 20px;
 }
 
 .formCheckout input{
     width: 100%;
+    height: 30px;
+}
+
+.formCheckout input:active{
+    background-color: #20941c ;
 }
 
 .formCheckout button{
-    color: #e7e7e7;
-    background-color: #3a51cf;
-    padding: 10px;
+    color: #ffffff;
+    background-color: #20941c;
+    padding: 14px 25px;
     border: none;
     margin: 10px auto;
     font-weight: 600;
     font-size: 18px;
     display: block;
+    border-radius: 20px;
+}
+
+.compraRealizada{
+    text-align: center;
+    margin: 50px;
 }
